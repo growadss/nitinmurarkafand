@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nitin Murarka | Stock Market Education</title>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+
+body{
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:16px 14px;
+  color:#1a1f2b;
+  background:#f5f6fa;
+}
+
+.wrap{width:100%;max-width:400px}
+
+.card{
+  background:#ffffff;
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 16px 40px rgba(30,41,59,.1);
+  border:1px solid #e8e9f2;
+}
+
+.flag{
+  height:6px;
+  background:linear-gradient(90deg,#0ea5e9,#0284c7,#0ea5e9);
+}
+
+.top{
+  text-align:center;
+  padding:22px 18px 14px;
+}
+
+.avatar{
+  width:72px;height:72px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid #0ea5e9;
+  padding:2px;
+  background:#fff;
+  display:block;
+  margin:0 auto 10px;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 12px;
+  background:#f0f9ff;
+  border:1px solid #bae6fd;
+  border-radius:30px;
+  color:#0284c7;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.4px;
+  margin-bottom:9px;
+}
+
+h1{font-size:18px;font-weight:900;color:#111827}
+.role{margin-top:3px;font-size:10px;color:#6b7280}
+
+.tagline{
+  margin-top:9px;
+  font-size:12.5px;
+  font-weight:800;
+  color:#0284c7;
+  line-height:1.45;
+}
+
+.icon-row{
+  display:flex;
+  gap:6px;
+  padding:12px 18px;
+  border-top:1px solid #f1f3f8;
+  border-bottom:1px solid #f1f3f8;
+  background:#f8fafd;
+  justify-content:space-around;
+}
+.icon-pill{text-align:center}
+.icon-pill .ic{font-size:16px;display:block;margin-bottom:3px}
+.icon-pill b{display:block;font-size:11px;color:#0284c7}
+.icon-pill span{font-size:8px;color:#8892a0}
+
+.body{padding:14px 18px 18px}
+
+.intro{
+  text-align:center;
+  font-size:10.5px;
+  color:#4b5563;
+  line-height:1.6;
+  margin-bottom:16px;
+}
+
+/* Unique ticket-stub CTA button - circular notches cut into the edges, dashed tear-line, beacon-pulse icon */
+.cta{
+  position:relative;
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+  background:linear-gradient(135deg,#0ea5e9,#0284c7);
+  color:#fff;
+  padding:15px 14px;
+  border-radius:16px;
+  box-shadow:0 12px 28px rgba(2,132,199,.3);
+}
+.cta:active{transform:scale(.98)}
+
+/* notch cutouts top/bottom, positioned near the right divider */
+.cta::before,
+.cta::after{
+  content:"";
+  position:absolute;
+  right:70px;
+  width:16px;height:16px;
+  background:#f5f6fa;
+  border-radius:50%;
+}
+.cta::before{top:-8px}
+.cta::after{bottom:-8px}
+
+.cta-main-wrap{
+  flex:1;
+  text-align:left;
+  padding-right:12px;
+}
+.cta-main{display:block;font-size:13.5px;font-weight:900}
+.cta-sub{display:block;margin-top:3px;font-size:9.5px;color:rgba(255,255,255,.85)}
+
+.cta-divider{
+  width:1px;
+  align-self:stretch;
+  background:repeating-linear-gradient(180deg,rgba(255,255,255,.5) 0 5px,transparent 5px 10px);
+  margin:0 12px;
+}
+
+.cta-beacon{
+  position:relative;
+  width:38px;height:38px;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.cta-beacon::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:rgba(255,255,255,.25);
+  animation:pulse-ring 1.8s ease-out infinite;
+}
+.cta-beacon span{
+  position:relative;
+  font-size:17px;
+}
+@keyframes pulse-ring{
+  0%{transform:scale(.7);opacity:.9}
+  100%{transform:scale(1.6);opacity:0}
+}
+
+.timer{
+  margin-top:10px;
+  text-align:center;
+  color:#8892a0;
+  font-size:9px;
+}
+.timer b{color:#0284c7}
+
+.feat-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:14px;
+}
+.f-cell{
+  background:#f8fafd;
+  border:1px solid #e8eef5;
+  border-radius:12px;
+  padding:10px 8px;
+  text-align:center;
+}
+.f-cell .ic{font-size:15px;margin-bottom:4px;display:block}
+.f-cell h3{font-size:10px;color:#1f2937;margin-bottom:1px}
+.f-cell p{font-size:8.5px;color:#7c8794;line-height:1.3}
+
+.disclaimer{
+  margin-top:13px;
+  padding-top:11px;
+  border-top:1px solid #eceef2;
+  color:#8892a0;
+  font-size:7.5px;
+  line-height:1.55;
+}
+
+.footer{margin-top:8px;text-align:center;color:#b0b7c2;font-size:7.5px}
+</style>
+
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1904269570964517');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1904269570964517&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
+
+</head>
+<body>
+
+<div class="wrap">
+  <div class="card">
+    <div class="flag"></div>
+
+    <div class="top">
+      <div class="badge">STOCK MARKET EDUCATION COMMUNITY</div>
+      <img src="nitin.jpg" class="avatar" alt="Nitin Murarka" width="72" height="72">
+      <h1>NITIN MURARKA</h1>
+      <div class="role">Stock Market Educator</div>
+      <div class="tagline">Learn Smart. Trade Aware.</div>
+    </div>
+
+    <div class="icon-row">
+      <div class="icon-pill"><span class="ic">🆓</span><b>Free</b><span>Access</span></div>
+      <div class="icon-pill"><span class="ic">📘</span><b>English</b><span>Language</span></div>
+      <div class="icon-pill"><span class="ic">📅</span><b>Daily</b><span>Updates</span></div>
+    </div>
+
+    <div class="body">
+      <p class="intro">
+        Real stock market education — no hype, no false promises. Just clear, honest learning to help you understand how markets actually work.
+      </p>
+
+      <a class="cta" id="telegramBtn" href="https://t.me/+2yvtH2MEzkdlZTI1" rel="noopener noreferrer">
+        <span class="cta-main-wrap">
+          <span class="cta-main">JOIN FREE COMMUNITY</span>
+          <span class="cta-sub">Tap to open Telegram</span>
+        </span>
+        <span class="cta-divider"></span>
+        <span class="cta-beacon"><span>✈️</span></span>
+      </a>
+
+      <div class="timer">Auto-redirecting in <span id="count">30</span>s...</div>
+
+      <div class="feat-grid">
+        <div class="f-cell"><span class="ic">📘</span><h3>Market Fundamentals</h3><p>Core concepts explained</p></div>
+        <div class="f-cell"><span class="ic">🎯</span><h3>Beginner Friendly</h3><p>Start from scratch</p></div>
+        <div class="f-cell"><span class="ic">💬</span><h3>Doubt Support</h3><p>Questions answered</p></div>
+        <div class="f-cell"><span class="ic">👥</span><h3>Community</h3><p>Learn together</p></div>
+      </div>
+
+      <div class="disclaimer">
+        <strong>Important Disclaimer:</strong> Nitin Murarka is an educational and informational platform only. We are not a SEBI-registered investment advisor. All content is strictly for learning and awareness purposes and does not constitute financial advice, trading recommendations, or any solicitation to buy or sell securities. Stock market investments are subject to market risks. Past performance is not indicative of future results. Please consult a SEBI-registered financial advisor before making any investment decisions. We do not guarantee any returns or profits.
+      </div>
+
+      <div class="footer">© 2026 Nitin Murarka • Educational Community</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var btn = document.getElementById("telegramBtn");
+  var link = "https://t.me/+2yvtH2MEzkdlZTI1";
+  var counter = document.getElementById("count");
+  var time = 30;
+
+  btn.addEventListener("click", function(){
+    // No preventDefault, no setTimeout — navigation happens
+    // immediately via the href so in-app browsers don't block it.
+    if(window.fbq){
+      fbq('track','Subscribe',{content_name:'Nitin Murarka Telegram Community'},{eventID:'telegram_subscribe_'+Date.now()});
+    }
+  });
+
+  var t = setInterval(function(){
+    time--;
+    counter.textContent = time;
+    if(time <= 0){
+      clearInterval(t);
+      window.location.href = link;
+    }
+  }, 1000);
+})();
+</script>
+
+</body>
+</html>
